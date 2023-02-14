@@ -1,0 +1,15 @@
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\bin\Debug\net6.0\H.exe
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\bin\Debug\net6.0\H.deps.json
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\bin\Debug\net6.0\H.runtimeconfig.json
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\bin\Debug\net6.0\H.dll
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\bin\Debug\net6.0\H.pdb
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.csproj.AssemblyReference.cache
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.AssemblyInfoInputs.cache
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.AssemblyInfo.cs
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.csproj.CoreCompileInputs.cache
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.dll
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\refint\H.dll
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.pdb
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\H.genruntimeconfig.cache
+C:\Users\YahyaElMabroukيحي\source\repos\H\H\obj\Debug\net6.0\ref\H.dll
