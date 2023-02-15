@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 namespace knightshortestpath
 {
-    public class Cell
+    
+    public class Knight
     {
         public int x, y;
         public int dis;
         public List<int> steps;
-        public Cell(int x, int y, int dis, List<int> steps)
+        public Knight(int x, int y, int dis, List<int> steps)
         {
             this.x = x;
             this.y = y;
@@ -21,17 +22,24 @@ namespace knightshortestpath
         static void Main(string[] args)
         {
             Console.WriteLine("X=");
-            int x = int.Parse(Console.ReadLine());
+            int x = int.Parse(Console.ReadLine()) ;
             Console.WriteLine("Y=");
             int y = int.Parse(Console.ReadLine());
-            //int M = Math.Max(x, y) +50;
-            int M = 10000;
+            //M Should be bigger than the maximum of (x,y)
+            int M = 5000;
+
 
             List<int> list = new List<int>();
-            Cell start = new Cell(0, 0, 0, new List<int>());
-            Cell end = new Cell(x, y, 0, new List<int>());
+            Knight start = new Knight(0, 0, 0, new List<int>());
+            Knight end = new Knight(x, y, 0, new List<int>());
+            Console.WriteLine($"The shortest path to reach the ({x} , {y}) point is : ");
             Console.WriteLine("(0 , 0)");
-            bfs(start, end, M+1);
+            ShortestPath(start, end, M + 1);
+            int G = Math.Max(x, y) + 1;
+            char[,] Matrix = new char[G, G];
+          
+            
+           
         }
 
 
@@ -42,9 +50,10 @@ namespace knightshortestpath
             return false;
         }
 
-        static void bfs(Cell start, Cell end, int N)
+        static void ShortestPath(Knight start, Knight end, int N)
         {
-            Queue<Cell> queue = new Queue<Cell>();
+            
+            Queue<Knight> queue = new Queue<Knight>();
             queue.Enqueue(start);
             bool[,] visit = new bool[N + 1, N + 1];
             for (int i = 1; i <= N; i++)
@@ -59,13 +68,32 @@ namespace knightshortestpath
 
             while (queue.Count > 0)
             {
-                Cell current = queue.Dequeue();
+                Knight current = queue.Dequeue();
                 if (current.x == end.x && current.y == end.y)
                 {
-                 
+                    char[,] result = new char[N+1, N+1];
+                    
+                    for (int i = 0;  i< N; ++i)
+                    {
+                        for (int j = 0; j < N; ++j)
+                        {
+                            result[i, j] = '*';
+                        }
+                    }
                     for (int i = 0; i < current.steps.Count; i += 2)
                     {
                         Console.WriteLine($"({current.steps[i]} , {current.steps[i + 1]})");
+                        result[N-current.steps[i + 1] -1, current.steps[i] ]  = '$';
+                        
+                    }
+
+                    for(int i = 0; i < N+1; ++i)
+                    {
+                        for (int j  = 0; j < N+1; ++j)
+                        {
+                            Console.Write(result[i, j]);
+                        }
+                        Console.WriteLine();
                     }
                     return;
 
@@ -82,14 +110,10 @@ namespace knightshortestpath
                         temporaryList.Add(newx);
                         temporaryList.Add(newy);
                         visit[newx, newy] = true;
-                        queue.Enqueue(new Cell(newx, newy, 0, temporaryList));
+                        queue.Enqueue(new Knight(newx, newy, 0, temporaryList));
                     }
                 }
             }
         }
-    static void DisplayChessBoard()
-    {
-        Console.WriteLine("ee");
-    }
     }
 }
