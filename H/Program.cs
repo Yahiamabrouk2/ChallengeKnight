@@ -26,7 +26,8 @@ namespace knightshortestpath
             Console.WriteLine("Y=");
             int y = int.Parse(Console.ReadLine());
             //M Should be bigger than the maximum of (x,y)
-            int M = 5000;
+            int M = Math.Max(x, y) + 10;
+
 
 
             List<int> list = new List<int>();
@@ -34,12 +35,7 @@ namespace knightshortestpath
             Knight end = new Knight(x, y, 0, new List<int>());
             Console.WriteLine($"The shortest path to reach the ({x} , {y}) point is : ");
             Console.WriteLine("(0 , 0)");
-            ShortestPath(start, end, M + 1);
-            int G = Math.Max(x, y) + 1;
-            char[,] Matrix = new char[G, G];
-          
-            
-           
+            ShortestPath(start, end, M + 2);
         }
 
 
@@ -55,7 +51,7 @@ namespace knightshortestpath
             
             Queue<Knight> queue = new Queue<Knight>();
             queue.Enqueue(start);
-            bool[,] visit = new bool[N + 1, N + 1];
+            bool[,] visit = new bool[N + 10, N + 10];
             for (int i = 1; i <= N; i++)
                 for (int j = 1; j <= N; j++)
                     visit[i, j] = false;
@@ -71,19 +67,19 @@ namespace knightshortestpath
                 Knight current = queue.Dequeue();
                 if (current.x == end.x && current.y == end.y)
                 {
-                    char[,] result = new char[N+1, N+1];
+                    string[,] result = new string[N+1, N+1];
                     
                     for (int i = 0;  i< N; ++i)
                     {
                         for (int j = 0; j < N; ++j)
                         {
-                            result[i, j] = '*';
+                            result[i, j] = " * ";
                         }
                     }
                     for (int i = 0; i < current.steps.Count; i += 2)
                     {
                         Console.WriteLine($"({current.steps[i]} , {current.steps[i + 1]})");
-                        result[N-current.steps[i + 1] -1, current.steps[i] ]  = '$';
+                        result[N-current.steps[i + 1] -1 ,current.steps[i] ]  = $" {i} " ;
                         
                     }
 
